@@ -1,19 +1,21 @@
 package org.gildedrose;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import org.junit.Before;
 
 public class GildedRoseTst
 {
-
 	protected static final int MAX_QUALITY = 50;
 	protected static final int ORIGINAL_QUALITY = 5;
-	private LinkedList<Item> items;
-	protected Item item;
-	protected Item agedBrie;
-	protected Item sulfuras;
-	protected Item backstagePass;
+
+	private List<ConfigurableItem> items;
+	
+	protected ConfigurableItem item;
+	protected ConfigurableItem agedBrie;
+	protected ConfigurableItem sulfuras;
+	protected ConfigurableItem backstagePass;
 
 	public GildedRoseTst()
 	{
@@ -23,18 +25,18 @@ public class GildedRoseTst
 	@Before
 	public void setup()
 	{
-		items = new LinkedList<Item>();
+		items = new LinkedList<ConfigurableItem>();
 		
-		item = new Item("General Item", 5, 5);
+		item = new ConfigurableItem("General Item", 5, 5);
 		items.add(item);
 	
-		agedBrie = new Item("Aged Brie", 3, 5);
+		agedBrie = GildedRose.createAgedBrie(3, 5);
 		items.add(agedBrie);
 	
-		sulfuras = new Item("Sulfuras, Hand of Ragnaros", 9, 9);
+		sulfuras = GildedRose.createSulfuras(9, 9);
 		items.add(sulfuras);
 	
-		backstagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 4, 7);
+		backstagePass = GildedRose.createBackstagePass(4, 7);
 		items.add(backstagePass);
 	}
 
