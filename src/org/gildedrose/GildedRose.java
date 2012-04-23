@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.gildedrose.ageing.Immortal;
+import org.gildedrose.quality.DoubleSpoiling;
 import org.gildedrose.quality.TieredImprovement;
 import org.gildedrose.quality.Improving;
 import org.gildedrose.quality.Undiminishing;
@@ -29,6 +30,7 @@ public class GildedRose {
 		ConfigurableItem agedBrie = createAgedBrie(2, 0);
         ConfigurableItem sulfuras = createSulfuras(0, 80);
         ConfigurableItem backstagePass = createBackstagePass(15, 20);
+        ConfigurableItem conjuredManaCake = createConjuredManaCake(3, 6);
         
         List<ConfigurableItem> items = new ArrayList<ConfigurableItem>();
         items.add(new ConfigurableItem("+5 Dexterity Vest", 10, 20));
@@ -36,9 +38,16 @@ public class GildedRose {
         items.add(new ConfigurableItem("Elixir of the Mongoose", 5, 7));
 		items.add(sulfuras);
 		items.add(backstagePass);
-        items.add(new ConfigurableItem("Conjured Mana Cake", 3, 6));
+		items.add(conjuredManaCake);
         
         return items;
+	}
+
+	static ConfigurableItem createConjuredManaCake(int sellIn, int quality)
+	{
+		ConfigurableItem conjuredManaCake = new ConfigurableItem("Conjured Mana Cake", sellIn, quality);
+		conjuredManaCake.setQualityAssessmentStrategy(new DoubleSpoiling());
+		return conjuredManaCake;
 	}
 
 	static ConfigurableItem createBackstagePass(int sellIn, int quality)

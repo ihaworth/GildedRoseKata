@@ -16,6 +16,7 @@ public class GildedRoseTst
 	protected ConfigurableItem agedBrie;
 	protected ConfigurableItem sulfuras;
 	protected ConfigurableItem backstagePass;
+	protected ConfigurableItem conjuredManaCake;
 
 	public GildedRoseTst()
 	{
@@ -35,9 +36,12 @@ public class GildedRoseTst
 	
 		sulfuras = GildedRose.createSulfuras(9, 9);
 		items.add(sulfuras);
-	
+		
 		backstagePass = GildedRose.createBackstagePass(4, 7);
 		items.add(backstagePass);
+		
+		conjuredManaCake = GildedRose.createConjuredManaCake(3, 6);
+		items.add(conjuredManaCake);
 	}
 
 	protected void updateQuality()
