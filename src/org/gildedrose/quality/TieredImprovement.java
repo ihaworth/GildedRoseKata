@@ -5,7 +5,7 @@ import org.gildedrose.ConfigurableItem;
 public class TieredImprovement implements QualityAssessmentStrategy
 {
 	@Override
-	public void updateQualityGenerally(ConfigurableItem configurableItem)
+	public void updateQuality(ConfigurableItem configurableItem)
 	{
 		configurableItem.incrementQuality();
 

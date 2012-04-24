@@ -2,10 +2,9 @@ package org.gildedrose;
 
 import org.gildedrose.ageing.AgeingStrategy;
 import org.gildedrose.ageing.Mortal;
-import org.gildedrose.quality.Spoiling;
+import org.gildedrose.quality.AcceleratedSpoiling;
 import org.gildedrose.quality.QualityAssessmentStrategy;
-import org.gildedrose.quality.postsellin.AcceleratedSpoiling;
-import org.gildedrose.quality.postsellin.PostSellInQualityAssessmentStrategy;
+import org.gildedrose.quality.Spoiling;
 
 public class ConfigurableItem extends Item
 {
@@ -14,7 +13,7 @@ public class ConfigurableItem extends Item
 
 	private QualityAssessmentStrategy qualityAssessmentStrategy;
 	private AgeingStrategy ageingStrategy;
-	private PostSellInQualityAssessmentStrategy postSellInQualityAssessmentStrategy;
+	private QualityAssessmentStrategy postSellInQualityAssessmentStrategy;
 
 	public ConfigurableItem(String name, int sellIn, int quality)
 	{
@@ -40,21 +39,21 @@ public class ConfigurableItem extends Item
 		this.ageingStrategy = ageingStrategy;
 	}
 
-	public void setPostSellInQualityAssessmentStrategy(PostSellInQualityAssessmentStrategy postSellInQualityAssessmentStrategy)
+	public void setPostSellInQualityAssessmentStrategy(QualityAssessmentStrategy postSellInQualityAssessmentStrategy)
 	{
 		this.postSellInQualityAssessmentStrategy = postSellInQualityAssessmentStrategy;
 	}
 
-	
+
 	void updateItem()
 	{
-		qualityAssessmentStrategy.updateQualityGenerally(this);
-	
+		qualityAssessmentStrategy.updateQuality(this);
+
 		ageingStrategy.updateSellInDate(this);
-	
+
 		if (pastSellInDate())
 		{
-		    postSellInQualityAssessmentStrategy.updateQualityPostSellInDate(this);
+		    postSellInQualityAssessmentStrategy.updateQuality(this);
 		}
 	}
 

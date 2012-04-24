@@ -4,5 +4,5 @@ import org.gildedrose.ConfigurableItem;
 
 public interface QualityAssessmentStrategy
 {
-	public abstract void updateQualityGenerally(ConfigurableItem configurableItem);
+	public abstract void updateQuality(ConfigurableItem configurableItem);
 }

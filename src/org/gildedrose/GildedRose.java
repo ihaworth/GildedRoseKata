@@ -4,22 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.gildedrose.ageing.Immortal;
+import org.gildedrose.quality.AcceleratedImproving;
 import org.gildedrose.quality.DoubleSpoiling;
-import org.gildedrose.quality.TieredImprovement;
 import org.gildedrose.quality.Improving;
+import org.gildedrose.quality.TieredImprovement;
 import org.gildedrose.quality.Undiminishing;
-import org.gildedrose.quality.postsellin.AcceleratedImproving;
-import org.gildedrose.quality.postsellin.Unvarying;
-import org.gildedrose.quality.postsellin.Worthless;
+import org.gildedrose.quality.Worthless;
 
 public class GildedRose {
 
 	private static List<ConfigurableItem> items = null;
 
 	public static void main(String[] args) {
-		
+
         System.out.println("OMGHAI!");
-		
+
         items = createItems();
 
         updateQuality(items);
@@ -31,7 +30,7 @@ public class GildedRose {
         ConfigurableItem sulfuras = createSulfuras(0, 80);
         ConfigurableItem backstagePass = createBackstagePass(15, 20);
         ConfigurableItem conjuredManaCake = createConjuredManaCake(3, 6);
-        
+
         List<ConfigurableItem> items = new ArrayList<ConfigurableItem>();
         items.add(new ConfigurableItem("+5 Dexterity Vest", 10, 20));
 		items.add(agedBrie);
@@ -39,7 +38,7 @@ public class GildedRose {
 		items.add(sulfuras);
 		items.add(backstagePass);
 		items.add(conjuredManaCake);
-        
+
         return items;
 	}
 
@@ -63,7 +62,7 @@ public class GildedRose {
 		ConfigurableItem sulfuras = new ConfigurableItem("Sulfuras, Hand of Ragnaros", sellIn, quality);
         sulfuras.setAgeingStrategy(new Immortal());
         sulfuras.setQualityAssessmentStrategy(new Undiminishing());
-        sulfuras.setPostSellInQualityAssessmentStrategy(new Unvarying());
+        sulfuras.setPostSellInQualityAssessmentStrategy(new Undiminishing());
 		return sulfuras;
 	}
 
@@ -74,7 +73,7 @@ public class GildedRose {
         agedBrie.setPostSellInQualityAssessmentStrategy(new AcceleratedImproving());
 		return agedBrie;
 	}
-	
+
     public static void updateQuality(List<ConfigurableItem> items)
     {
         for (int i = 0; i < items.size(); i++)
