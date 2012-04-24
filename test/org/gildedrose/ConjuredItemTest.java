@@ -10,9 +10,20 @@ public class ConjuredItemTest extends GildedRoseTst
 	public void conjuredItemsIncreaseInQualityTwiceAsFastAsNormal()
 	{
 		conjuredManaCake.setQuality(ORIGINAL_QUALITY);
-		
+
 		updateQuality();
-		
+
 		assertEquals(ORIGINAL_QUALITY - 2, conjuredManaCake.getQuality());
+	}
+
+	@Test
+	public void conjuredItemsIncreaseInQualityTwiceAsFastAsNormalAfterSellInDate()
+	{
+		conjuredManaCake.setQuality(ORIGINAL_QUALITY);
+		conjuredManaCake.setSellIn(0);
+
+		updateQuality();
+
+		assertEquals(ORIGINAL_QUALITY - 4, conjuredManaCake.getQuality());
 	}
 }

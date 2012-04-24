@@ -46,6 +46,7 @@ public class GildedRose {
 	{
 		ConfigurableItem conjuredManaCake = new ConfigurableItem("Conjured Mana Cake", sellIn, quality);
 		conjuredManaCake.setQualityAssessmentStrategy(new DoubleSpoiling());
+		conjuredManaCake.setPostSellInQualityAssessmentStrategy(new DoubleSpoiling());
 		return conjuredManaCake;
 	}
 
