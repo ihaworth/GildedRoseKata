@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.gildedrose.ageing.Immortal;
-import org.gildedrose.quality.AcceleratedImproving;
+import org.gildedrose.quality.DoubleImproving;
 import org.gildedrose.quality.DoubleSpoiling;
 import org.gildedrose.quality.Improving;
+import org.gildedrose.quality.QuadrupleSpoiling;
 import org.gildedrose.quality.TieredImprovement;
 import org.gildedrose.quality.Undiminishing;
 import org.gildedrose.quality.Worthless;
@@ -46,7 +47,7 @@ public class GildedRose {
 	{
 		ConfigurableItem conjuredManaCake = new ConfigurableItem("Conjured Mana Cake", sellIn, quality);
 		conjuredManaCake.setQualityAssessmentStrategy(new DoubleSpoiling());
-		conjuredManaCake.setPostSellInQualityAssessmentStrategy(new DoubleSpoiling());
+		conjuredManaCake.setPostSellInQualityAssessmentStrategy(new QuadrupleSpoiling());
 		return conjuredManaCake;
 	}
 
@@ -71,7 +72,7 @@ public class GildedRose {
 	{
 		ConfigurableItem agedBrie = new ConfigurableItem("Aged Brie", sellIn, quality);
         agedBrie.setQualityAssessmentStrategy(new Improving());
-        agedBrie.setPostSellInQualityAssessmentStrategy(new AcceleratedImproving());
+        agedBrie.setPostSellInQualityAssessmentStrategy(new DoubleImproving());
 		return agedBrie;
 	}
 

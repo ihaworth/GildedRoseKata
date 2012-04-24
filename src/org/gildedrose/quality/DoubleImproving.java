@@ -2,11 +2,12 @@ package org.gildedrose.quality;
 
 import org.gildedrose.ConfigurableItem;
 
-public class AcceleratedSpoiling implements QualityAssessmentStrategy
+public class DoubleImproving implements QualityAssessmentStrategy
 {
 	@Override
 	public void updateQuality(ConfigurableItem configurableItem)
 	{
-		configurableItem.decrementQuality();
+		configurableItem.incrementQuality();
+		configurableItem.incrementQuality();
 	}
 }
