@@ -3,7 +3,7 @@ package org.gildedrose;
 import org.gildedrose.ageing.AgeingStrategy;
 import org.gildedrose.ageing.Mortal;
 import org.gildedrose.quality.DoubleSpoiling;
-import org.gildedrose.quality.QualityAssessmentStrategy;
+import org.gildedrose.quality.QualityUpdateStrategy;
 import org.gildedrose.quality.Spoiling;
 
 public class ConfigurableItem extends Item
@@ -11,9 +11,9 @@ public class ConfigurableItem extends Item
 	private static final int MAX_QUALITY = 50;
 	private static final int MIN_QUALITY = 0;
 
-	private QualityAssessmentStrategy preSellInQualityAssessmentStrategy;
+	private QualityUpdateStrategy preSellInQualityUpdateStrategy;
 	private AgeingStrategy ageingStrategy;
-	private QualityAssessmentStrategy postSellInQualityAssessmentStrategy;
+	private QualityUpdateStrategy postSellInQualityUpdateStrategy;
 
 	public ConfigurableItem(String name, int sellIn, int quality)
 	{
@@ -24,14 +24,14 @@ public class ConfigurableItem extends Item
 
 	private void setDefaultStrategies()
 	{
-		preSellInQualityAssessmentStrategy = new Spoiling();
+		preSellInQualityUpdateStrategy = new Spoiling();
 		ageingStrategy = new Mortal();
-		postSellInQualityAssessmentStrategy = new DoubleSpoiling();
+		postSellInQualityUpdateStrategy = new DoubleSpoiling();
 	}
 
-	public void setQualityAssessmentStrategy(QualityAssessmentStrategy qualityAssessmentStrategy)
+	public void setPreSellInQualityUpdateStrategy(QualityUpdateStrategy qualityUpdateStrategy)
 	{
-		this.preSellInQualityAssessmentStrategy = qualityAssessmentStrategy;
+		this.preSellInQualityUpdateStrategy = qualityUpdateStrategy;
 	}
 
 	public void setAgeingStrategy(AgeingStrategy ageingStrategy)
@@ -39,9 +39,9 @@ public class ConfigurableItem extends Item
 		this.ageingStrategy = ageingStrategy;
 	}
 
-	public void setPostSellInQualityAssessmentStrategy(QualityAssessmentStrategy postSellInQualityAssessmentStrategy)
+	public void setPostSellInQualityUpdateStrategy(QualityUpdateStrategy postSellInQualityUpdateAssessmentStrategy)
 	{
-		this.postSellInQualityAssessmentStrategy = postSellInQualityAssessmentStrategy;
+		this.postSellInQualityUpdateStrategy = postSellInQualityUpdateAssessmentStrategy;
 	}
 
 
@@ -51,11 +51,11 @@ public class ConfigurableItem extends Item
 
 		if (beforeSellInDate())
 		{
-			preSellInQualityAssessmentStrategy.updateQuality(this);
+			preSellInQualityUpdateStrategy.updateQuality(this);
 		}
 		else if (pastSellInDate())
 		{
-		    postSellInQualityAssessmentStrategy.updateQuality(this);
+		    postSellInQualityUpdateStrategy.updateQuality(this);
 		}
 	}
 

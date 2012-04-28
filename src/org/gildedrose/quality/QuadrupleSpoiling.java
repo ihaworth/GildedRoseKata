@@ -2,7 +2,7 @@ package org.gildedrose.quality;
 
 import org.gildedrose.ConfigurableItem;
 
-public class QuadrupleSpoiling implements QualityAssessmentStrategy
+public class QuadrupleSpoiling implements QualityUpdateStrategy
 {
 	@Override
 	public void updateQuality(ConfigurableItem configurableItem)

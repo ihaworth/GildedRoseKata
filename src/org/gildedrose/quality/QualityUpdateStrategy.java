@@ -2,7 +2,7 @@ package org.gildedrose.quality;
 
 import org.gildedrose.ConfigurableItem;
 
-public interface QualityAssessmentStrategy
+public interface QualityUpdateStrategy
 {
 	public abstract void updateQuality(ConfigurableItem configurableItem);
 }

@@ -46,16 +46,16 @@ public class GildedRose {
 	static ConfigurableItem createConjuredManaCake(int sellIn, int quality)
 	{
 		ConfigurableItem conjuredManaCake = new ConfigurableItem("Conjured Mana Cake", sellIn, quality);
-		conjuredManaCake.setQualityAssessmentStrategy(new DoubleSpoiling());
-		conjuredManaCake.setPostSellInQualityAssessmentStrategy(new QuadrupleSpoiling());
+		conjuredManaCake.setPreSellInQualityUpdateStrategy(new DoubleSpoiling());
+		conjuredManaCake.setPostSellInQualityUpdateStrategy(new QuadrupleSpoiling());
 		return conjuredManaCake;
 	}
 
 	static ConfigurableItem createBackstagePass(int sellIn, int quality)
 	{
 		ConfigurableItem backstagePass = new ConfigurableItem("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
-        backstagePass.setQualityAssessmentStrategy(new TieredImprovement());
-        backstagePass.setPostSellInQualityAssessmentStrategy(new Worthless());
+        backstagePass.setPreSellInQualityUpdateStrategy(new TieredImprovement());
+        backstagePass.setPostSellInQualityUpdateStrategy(new Worthless());
 		return backstagePass;
 	}
 
@@ -63,16 +63,16 @@ public class GildedRose {
 	{
 		ConfigurableItem sulfuras = new ConfigurableItem("Sulfuras, Hand of Ragnaros", sellIn, quality);
         sulfuras.setAgeingStrategy(new Immortal());
-        sulfuras.setQualityAssessmentStrategy(new Undiminishing());
-        sulfuras.setPostSellInQualityAssessmentStrategy(new Undiminishing());
+        sulfuras.setPreSellInQualityUpdateStrategy(new Undiminishing());
+        sulfuras.setPostSellInQualityUpdateStrategy(new Undiminishing());
 		return sulfuras;
 	}
 
 	static ConfigurableItem createAgedBrie(int sellIn, int quality)
 	{
 		ConfigurableItem agedBrie = new ConfigurableItem("Aged Brie", sellIn, quality);
-        agedBrie.setQualityAssessmentStrategy(new Improving());
-        agedBrie.setPostSellInQualityAssessmentStrategy(new DoubleImproving());
+        agedBrie.setPreSellInQualityUpdateStrategy(new Improving());
+        agedBrie.setPostSellInQualityUpdateStrategy(new DoubleImproving());
 		return agedBrie;
 	}
 
